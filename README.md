@@ -1,23 +1,6 @@
-# ezcv
+# Baguio City: A Blog Page
+Baguio City is one of the most visited cities in the Philippines and the hometown of the author, Jeanne Ferrer. The website includes a gallery of pictures of Baguio City, an about page of the city, and a collection of blog posts about tourists spots and the author's recommendations.
 
-Hi, welcome to [ezcv](https://ezcv.readthedocs.io/en/latest/). This is a batteries-included static site generator
-
-## Getting started
-
-Everything you need to get up and running.
-
-### Requirements
-
-To get started you will need python 3.8+ and pip for that python version. Once you have that you will need to install ezcv `pip install ezcv`
-
-### Running the project
-
-You can preview your project using `ezcv -p`, and generate your project fully using `ezcv build` which will build the site to `/site`. You can also set it to minify the output files to improve your performance on the site using `ezcv build -o` (this takes longer to build).
-
-### Additional documentation
-
-There is additional documentation available that will be helpful to you:
-
-- [List of themes for ezcv](https://ezcv.readthedocs.io/en/latest/included-themes/)
-- [ezcv usage guide](https://ezcv.readthedocs.io/en/latest/usage/)
-- [cli documentation for ezcv](https://ezcv.readthedocs.io/en/latest/cli/)
+## Credits
+This site was built using [ezcv](https://ezcv.readthedocs.io/en/latest/), which is a batteries-included static site generator. <br>
+All images are from [Unsplash](https://unsplash.com/) and [Pexels](https://www.pexels.com/). <br>
