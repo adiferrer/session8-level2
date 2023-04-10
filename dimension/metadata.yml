@@ -1,0 +1,71 @@
+created: 2022-04-22
+ezcv_version: 0.3.0
+folder: dimension
+name: dimension
+required_config:
+  biography:
+    default: A description of yourself
+    description: This field is for writing about yourself you can add a > to span
+      multiple lines
+    type: str
+  name:
+    default: name
+    description: Your full name
+    type: str
+sections:
+  blog:
+    feed: true
+    overview: true
+    single: true
+    type: blog
+  education:
+    fields:
+      current: bool
+      institution:
+        required: true
+        type: str
+      month_ended: str
+      month_started: str
+      title: str
+      year_ended: str
+      year_started: str
+    type: markdown
+  gallery:
+    type: gallery
+  projects:
+    fields:
+      image: image
+      link: str
+      title:
+        required: true
+        type: str
+    type: markdown
+  volunteering_experience:
+    fields:
+      company:
+        required: true
+        type: str
+      current: bool
+      month_ended: str
+      month_started: str
+      role:
+        required: true
+        type: str
+      year_ended: str
+      year_started: str
+    type: markdown
+  work_experience:
+    fields:
+      company:
+        required: true
+        type: str
+      current: bool
+      month_ended: str
+      month_started: str
+      role:
+        required: true
+        type: str
+      year_ended: str
+      year_started: str
+    type: markdown
+updated: 2023-4-7
