@@ -5,8 +5,52 @@ on:
     branches:
       - master
       - main
-
+  workflow_dispatch:
+    inputs:
+      version_number:
+        description: 'Version number'
+        required: true
+        type: int
+      description:
+        description: 'Describe your changes'
+        required: true
+        type: str
+    
 jobs:
+  printInput:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputs
+        run: |
+          echo Inputs are ${{ inputs.version_number }} ${{ inputs.description }}
+  minify:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04]
+    env:
+      prepo: ${{github.repository}}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Minify Actions
+      uses: amireshoon/minifyAction@main
+      with:
+        repo: $prepo
+    - name: Minifying Codes
+      run: |
+        minifier.sh $prepo
+    - name: Pushing to production branch
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        directory: github/workspace
+        branch: production
+        message: Minified css, js and html
+        author_name: MinifyAction[bot]
+        author_email: amireshoon-minifyAction@users.noreply.github.com
+        force: true
   build:
     runs-on: ubuntu-latest
     steps:
@@ -21,11 +65,9 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --upgrade setuptools wheel
         python -m pip install ezcv
-
     - name: build html files
       run: |
         python -m ezcv build
-
     - name: Deploy Docs
       uses: peaceiris/actions-gh-pages@v3
       with:
